@@ -26,6 +26,47 @@
       </div>
     </div>
 
+   
+  <div class="row">
+  <div class="col-sm-4">
+  </div>
+
+  <div class="col-sm-8">
+    <h2>Reviews</h2> 
+  </div>
+
+</div>
+  <% if @product.reviews.empty? %>
+    <div class="row">
+      <div class="col-sm-4">
+      </div>
+
+      <div class="col-sm-8">
+        <dl class="dl-horizontal">
+        <p>There are no reviews for this product</p>
+        </dl>
+      </div>
+    </div>
+  <% else %>
+  <% @product.reviews.each do |review| %>
+    <div class="row">
+      <div class="col-sm-4">
+      </div>
+
+      <div class="col-sm-8">
+      <dl class="dl-horizontal">
+        <dt>User</dt>
+        <dd><%= review.user.name %></dd>
+        <dt>Description</dt>
+        <dd><%= review.description %></dd>
+        <dt>Rating</dt>
+        <dd><%= review.rating %></dd>  
+      </dl>
+      </div>
+
+    </div>
+  <% end %>
+  <% end %>
   </article>
 
 </section>

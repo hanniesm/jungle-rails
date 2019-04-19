@@ -35,7 +35,7 @@ puts "Re-creating Products ..."
 
 Product.destroy_all
 
-cat1.products.create!({
+product1 =cat1.products.create!({
   name:  'Men\'s Classy shirt',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel1.jpg'),
@@ -43,7 +43,7 @@ cat1.products.create!({
   price: 64.99
 })
 
-cat1.products.create!({
+product2 = cat1.products.create!({
   name:  'Women\'s Zebra pants',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel2.jpg'),
@@ -51,7 +51,7 @@ cat1.products.create!({
   price: 124.99
 })
 
-cat1.products.create!({
+product3 = cat1.products.create!({
   name:  'Hipster Hat',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel3.jpg'),
@@ -59,7 +59,7 @@ cat1.products.create!({
   price: 34.49
 })
 
-cat1.products.create!({
+product4 = cat1.products.create!({
   name:  'Hipster Socks',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel4.jpg'),
@@ -67,7 +67,7 @@ cat1.products.create!({
   price: 25.00
 })
 
-cat1.products.create!({
+product5 = cat1.products.create!({
   name:  'Russian Spy Shoes',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel5.jpg'),
@@ -132,5 +132,64 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+
+
+puts "create a User ..."
+
+User.destroy_all
+
+user1 = User.create!(
+  name: 'Bob',
+  email: 'bob@email.com',
+  password_digest: 'password',
+)
+
+user2 = User.create!(
+  name: 'Frannie',
+  email: 'frannie@email.com',
+  password_digest: 'password',
+)
+
+## reviews
+
+puts "Creating some reviews ..."
+
+Review.destroy_all
+
+user1.reviews.create!({
+  product_id:  product1.id,
+  description: "God I love these",
+  rating: 5
+})
+
+user1.reviews.create!({
+  product_id:  product2.id,
+  description: "These suck",
+  rating: 1
+})
+
+user1.reviews.create!({
+  product_id:  product3.id,
+  description: "Product never arrived",
+  rating: 1
+})
+
+user1.reviews.create!({
+  product_id:  product4.id,
+  description: "Simply the best",
+  rating: 5
+})
+
+user2.reviews.create!({
+  product_id:  product1.id,
+  description: "So functional",
+  rating: 4
+})
+
+user2.reviews.create!({
+  product_id:  product2.id,
+  description: "Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium.",
+  rating: 4
+})
 
 puts "DONE!"

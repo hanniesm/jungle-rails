@@ -33,14 +33,12 @@
 
   <div class="col-sm-8">
     <h2>Reviews</h2> 
-    <%= form_for [@product, @review], url: [@product, :reviews], method: "POST" do |form| %>
-      <%= form.fields_for :review do |f| %>
-        <%= f.label :description %>
-        <%= f.text_field :description %>
-        <%= f.label :rating %>
-        <%= f.select :rating, options_for_select([1,2,3,4,5]) %>
-        <%= f.submit "New Review"%>
-        <% end %>
+    <%= form_for [@product, @review], url: [@product, :reviews], method: "POST" do |f| %>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+      <%= f.label :rating %>
+      <%= f.select :rating, options_for_select([1,2,3,4,5]) %>
+      <%= f.submit "New Review"%>
     <% end %>
   </div>
 

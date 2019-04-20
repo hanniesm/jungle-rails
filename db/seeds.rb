@@ -150,6 +150,24 @@ user2 = User.create!(
   password_digest: 'password',
 )
 
+user3 = User.create!(
+  name: 'John',
+  email: 'john@email.com',
+  password_digest: 'password',
+)
+
+user4 = User.create!(
+  name: 'Margaret',
+  email: 'margaret@email.com',
+  password_digest: 'password',
+)
+
+user5 = User.create!(
+  name: 'Tabitha',
+  email: 'tabbie@email.com',
+  password_digest: 'password',
+)
+
 ## reviews
 
 puts "Creating some reviews ..."

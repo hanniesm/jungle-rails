@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find params[:id]
-    @reviews = @product.reviews
+    @reviews = @product.reviews.sort_by { |h| h[:created_at] }.reverse!
     @review = Review.new(@product_id)
   end
 

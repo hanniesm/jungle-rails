@@ -22,11 +22,12 @@ RSpec.feature "Visitor navigates to product details page", type: :feature, js: t
     # DEBUG / VERIFY
     within '.products-index' do 
       page.find("a.btn.btn-default.pull-right[href='/products/1']").click
-      # click_on 'Details'
       sleep 1
       save_screenshot
       # puts page.html
-      # expect(page).to have_css '.products-show'
+      # page.find("section.products-show")
+      
+      expect(page).to have_css 'section.products-show'
     end
   end
 
